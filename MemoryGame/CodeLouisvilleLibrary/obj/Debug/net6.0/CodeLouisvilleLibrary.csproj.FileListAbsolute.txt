@@ -1,0 +1,12 @@
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/bin/Debug/net6.0/CodeLouisvilleLibrary.deps.json
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/bin/Debug/net6.0/CodeLouisvilleLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/bin/Debug/net6.0/CodeLouisvilleLibrary.pdb
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.csproj.AssemblyReference.cache
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.AssemblyInfoInputs.cache
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.AssemblyInfo.cs
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.csproj.CoreCompileInputs.cache
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/refint/CodeLouisvilleLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/CodeLouisvilleLibrary.pdb
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/obj/Debug/net6.0/ref/CodeLouisvilleLibrary.dll
