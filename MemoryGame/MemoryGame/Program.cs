@@ -14,17 +14,27 @@ namespace MemoryGame // Note: actual namespace depends on the project name.
 
             // use Run() from base class
 
+            int numberOfTurns = 0;
+            int numberOfMatches = 0;
+
 
             List<string> words = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE" };
 
             Random r = new Random();
 
-            List<string> random5 = words.OrderBy(w => r.Next()).Take(16).ToList();  // Take(16) not necessary until list becomes larger than 16
+            List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();  // Take(16) not necessary until list becomes larger than 16
 
 
             List<string> numStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
 
             List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
+
+
+            //Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));  //FOR TESTING
+                //written to console for testing - in program, comment out previous line and uncomment the next line:
+            string.Join(", ", shuffledStr.ToArray());   //COMMENT THIS OUT WHEN TESTING AND UNCOMMENT PRIOR CONSOLE.WRITELINE
+
+           
 
             for (int i = 0; i < 13; i++, i++, i++, i++)
             {
@@ -36,7 +46,9 @@ namespace MemoryGame // Note: actual namespace depends on the project name.
 
             int choice1 = -1 + Int32.Parse(Console.ReadLine());  // add code to prevent null?
             int compare1 = choice1;
-            displayStr[choice1] = words[choice1];
+            displayStr[choice1] = shuffledStr[choice1];
+
+
 
             for (int i = 0; i < 13; i++, i++, i++, i++)
             {
@@ -50,7 +62,7 @@ namespace MemoryGame // Note: actual namespace depends on the project name.
             int choice2 = -1 + Int32.Parse(Console.ReadLine());   // add code to accept only numbers available on screen and  prevent null
             Console.WriteLine();
             //Console.Clear();
-            displayStr[choice2] = words[choice2];
+            displayStr[choice2] = shuffledStr[choice2];
 
             Console.Clear();
             for (int i = 0; i < 13; i++, i++, i++, i++)
@@ -60,9 +72,21 @@ namespace MemoryGame // Note: actual namespace depends on the project name.
                 Console.WriteLine();
             }
 
-            if (choice1 == choice2)
+
+            numberOfTurns++; 
+
+            if ( displayStr[choice1] == displayStr[choice2] )
             {
+                numberOfMatches++;
+
                 Console.WriteLine("A match!");
+                Console.WriteLine($"That is match number {numberOfMatches}.");
+
+                Console.WriteLine();
+                if (numberOfMatches == 7)
+                {
+                    Console.Write("There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}");
+                }
             }
             else
             {
