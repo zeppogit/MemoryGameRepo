@@ -45,7 +45,8 @@ namespace MemoryGame
             List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
 
 
-            //Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));  //FOR TESTING
+            Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));  //FOR TESTING
+            Console.WriteLine();  // FOR TESTING TO SHOW SHUFFLED WORDS AND ALLOW PICKING MATCHING NUMBERS
             //written to console for testing - in program, comment out previous line and uncomment the next line:
             //string.Join(", ", shuffledStr.ToArray());   //COMMENT THIS OUT WHEN TESTING AND UNCOMMENT PRIOR CONSOLE.WRITELINE
 
