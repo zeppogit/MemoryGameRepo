@@ -1,28 +1,29 @@
 ﻿<Properties StartupConfiguration="{EF4C9FD7-B6D7-4D56-9410-6E30F1C886A3}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CodeLouisvilleLibrary/CodeLouisvilleAppBase.cs">
+  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MemoryGame/Program.cs">
     <Files>
-      <File FileName="MemoryGame/Program.cs" Line="31" Column="1" />
-      <File FileName="CodeLouisvilleLibrary/Class1.cs" Line="297" Column="11" />
-      <File FileName="MemoryGame/MemoryGameApp.cs" Line="1" Column="1" />
-      <File FileName="GameLibrary/Class1.cs" Line="4" Column="1" />
-      <File FileName="GameLibrary/Player.cs" Line="12" Column="1" />
-      <File FileName="CodeLouisvilleLibrary/Menu.cs" Line="12" Column="1" />
+      <File FileName="MemoryGame/Program.cs" Line="58" Column="16" />
+      <File FileName="GameLibrary/GameBoard.cs" Line="4" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State name="__root__" />
+        <State name="__root__">
+          <Node name="MemoryGame" expanded="True">
+            <Node name="GameLibrary" expanded="True" />
+            <Node name="MemoryGame" expanded="True" />
+          </Node>
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.GameLibrary FirstBuild="True" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
 </Properties>
