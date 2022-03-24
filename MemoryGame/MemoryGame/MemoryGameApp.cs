@@ -25,12 +25,19 @@ namespace MemoryGame
             int numberOfTurns = 0;
             int numberOfMatches = 0;
 
-
+            /// THIS LING QUERY WILL GO INTO A DisplayGameBoard() method in GameBoard.cs class ////////////////////////
+            /// 
+            // The Three Parts of a LINQ Query:
+            // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries
+            // PART 1. Data source.
             List<string> words = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE" };
 
-            Random r = new Random();
-
-            List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();  // Take(16) not necessary until list becomes larger than 16
+            // The Three Parts of a LINQ Query:
+            // PART 2. Query creation.
+            Random r = new Random();   //System.Random()
+            List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();
+                // Take(16) not necessary until list becomes larger than 16,
+                // where the parameter now shown as 16 will become an option selected by player before game board appears
 
 
             List<string> numStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
@@ -38,17 +45,24 @@ namespace MemoryGame
             List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
 
 
-            Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));  //FOR TESTING
-                                                                          //written to console for testing - in program, comment out previous line and uncomment the next line:
-                                                                          //string.Join(", ", shuffledStr.ToArray());   //COMMENT THIS OUT WHEN TESTING AND UNCOMMENT PRIOR CONSOLE.WRITELINE
+            //Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));  //FOR TESTING
+            //written to console for testing - in program, comment out previous line and uncomment the next line:
+            //string.Join(", ", shuffledStr.ToArray());   //COMMENT THIS OUT WHEN TESTING AND UNCOMMENT PRIOR CONSOLE.WRITELINE
 
 
+            // The Three Parts of a LINQ Query:
+            // PART 3. Query execution.
 
             for (int i = 0; i < 13; i++, i++, i++, i++)
             {
                 Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
                 Console.WriteLine();
             }
+
+    ////////////// END LINQ QUERY  ////// WILL BE MOVED
+    
+
+            // Game Board now displayed, and Game Play begins //////////////////////////////////////
 
             Console.WriteLine(" pick a number to reveal");
 
