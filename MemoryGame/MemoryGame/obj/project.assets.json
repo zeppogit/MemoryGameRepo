@@ -11,6 +11,16 @@
         "runtime": {
           "bin/placeholder/CodeLouisvilleLibrary.dll": {}
         }
+      },
+      "GameLibrary/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GameLibrary.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GameLibrary.dll": {}
+        }
       }
     }
   },
@@ -19,11 +29,17 @@
       "type": "project",
       "path": "../CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj",
       "msbuildProject": "../CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj"
+    },
+    "GameLibrary/1.0.0": {
+      "type": "project",
+      "path": "../GameLibrary/GameLibrary.csproj",
+      "msbuildProject": "../GameLibrary/GameLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CodeLouisvilleLibrary >= 1.0.0"
+      "CodeLouisvilleLibrary >= 1.0.0",
+      "GameLibrary >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,6 +69,9 @@
           "projectReferences": {
             "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj": {
               "projectPath": "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj"
+            },
+            "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/GameLibrary.csproj": {
+              "projectPath": "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/GameLibrary.csproj"
             }
           }
         }

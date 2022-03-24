@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "MemoryGame/1.0.0": {
         "dependencies": {
-          "CodeLouisvilleLibrary": "1.0.0"
+          "CodeLouisvilleLibrary": "1.0.0",
+          "GameLibrary": "1.0.0"
         },
         "runtime": {
           "MemoryGame.dll": {}
@@ -17,6 +18,11 @@
       "CodeLouisvilleLibrary/1.0.0": {
         "runtime": {
           "CodeLouisvilleLibrary.dll": {}
+        }
+      },
+      "GameLibrary/1.0.0": {
+        "runtime": {
+          "GameLibrary.dll": {}
         }
       }
     }
@@ -28,6 +34,11 @@
       "sha512": ""
     },
     "CodeLouisvilleLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GameLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

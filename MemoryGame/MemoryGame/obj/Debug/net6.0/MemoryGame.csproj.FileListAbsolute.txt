@@ -16,3 +16,5 @@
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/MemoryGame/obj/Debug/net6.0/MemoryGame.pdb
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/MemoryGame/obj/Debug/net6.0/MemoryGame.genruntimeconfig.cache
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/MemoryGame/obj/Debug/net6.0/ref/MemoryGame.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/MemoryGame/bin/Debug/net6.0/GameLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/MemoryGame/bin/Debug/net6.0/GameLibrary.pdb
