@@ -19,6 +19,8 @@ namespace MemoryGame
 			//public MemoryGameApp(string saveFilePath) : base("Memory Game")
 		}
 
+
+
         protected override bool Main()
         {
 
@@ -30,6 +32,7 @@ namespace MemoryGame
             // The Three Parts of a LINQ Query:
             // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries
             // PART 1. Data source.
+
             List<string> words = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE" };
 
             // The Three Parts of a LINQ Query:
@@ -54,68 +57,98 @@ namespace MemoryGame
             // The Three Parts of a LINQ Query:
             // PART 3. Query execution.
 
-            for (int i = 0; i < 13; i++, i++, i++, i++)
+            while (numberOfMatches < 7)
             {
-                Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
-                Console.WriteLine();
-            }
-
-    ////////////// END LINQ QUERY  ////// WILL BE MOVED
-    
-
-            // Game Board now displayed, and Game Play begins //////////////////////////////////////
-
-            Console.WriteLine(" pick a number to reveal");
-
-            int choice1 = -1 + Int32.Parse(Console.ReadLine());  // add code to prevent null?
-            int compare1 = choice1;
-            displayStr[choice1] = shuffledStr[choice1];
-
-
-
-            for (int i = 0; i < 13; i++, i++, i++, i++)
-            {
-
-                Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
-                Console.WriteLine();
-            }
-
-            Console.WriteLine(" pick another number to reveal");
-
-            int choice2 = -1 + Int32.Parse(Console.ReadLine());   // add code to accept only numbers available on screen and  prevent null
-            Console.WriteLine();
-            //Console.Clear();
-            displayStr[choice2] = shuffledStr[choice2];
-
-            Console.Clear();
-            for (int i = 0; i < 13; i++, i++, i++, i++)
-            {
-
-                Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
-                Console.WriteLine();
-            }
-
-
-            numberOfTurns++;
-
-            if (displayStr[choice1] == displayStr[choice2])
-            {
-                numberOfMatches++;
-
-                Console.WriteLine("A match!");
-                Console.WriteLine($"That is match number {numberOfMatches}.");
-
-                Console.WriteLine();
-                if (numberOfMatches == 7)
+                for (int i = 0; i < 13; i++, i++, i++, i++)
                 {
-                    Console.Write("There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}");
+                    Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                    Console.WriteLine();
+                }
+
+                ////////////// END LINQ QUERY  ////// WILL BE MOVED
+
+
+                // Game Board now displayed, and Game Play begins //////////////////////////////////////
+
+                Console.WriteLine(" pick a number to reveal");
+
+                int choice1 = -1 + Int32.Parse(Console.ReadLine());  // add code to prevent null?
+                int compare1 = choice1;
+                displayStr[choice1] = shuffledStr[choice1];
+
+
+                Console.Clear();
+                for (int i = 0; i < 13; i++, i++, i++, i++)
+                {
+
+                    Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                    Console.WriteLine();
+                }
+
+                Console.WriteLine(" pick another number to reveal");
+
+                int choice2 = -1 + Int32.Parse(Console.ReadLine());   // add code to accept only numbers available on screen and  prevent null
+                Console.WriteLine();
+                displayStr[choice2] = shuffledStr[choice2];
+
+                Console.Clear();
+                for (int i = 0; i < 13; i++, i++, i++, i++)
+                {
+
+                    Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                    Console.WriteLine();
+                }
+
+
+                numberOfTurns++;
+
+                if (displayStr[choice1] == displayStr[choice2])
+                {
+                    numberOfMatches++;
+
+                    for (int i = 0; i < 13; i++, i++, i++, i++)
+                    {
+                        Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                        Console.WriteLine();
+                    }
+
+                    Console.Clear();
+                    Console.WriteLine("A match!");
+                    Console.WriteLine($"That is match number {numberOfMatches}.");
+                    // create a prompt function "press Y to continue or Q to quit"  etc
+                    //   where if Y, a Console.Clear() runs.
+
+
+                    //Console.WriteLine();
+                    if (numberOfMatches == 7)
+                    {
+                        Console.Clear();
+
+                        for (int i = 0; i < 13; i++, i++, i++, i++)
+                        {
+                            Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                            Console.WriteLine();
+                        }
+
+                        Console.Write($"There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}");
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+
+                    Console.WriteLine("Not a match!   Try again.");
+                    displayStr[choice1] = numStr[choice1];
+                    displayStr[choice2] = numStr[choice2];
+
                 }
             }
-            else
-            {
-                Console.WriteLine("Not a match!   Try again.");
-            }
-            return false;
+
+            Console.WriteLine("Would you like to play a new game?  Enter Y for yes, or N  to quit the program.");
+            Console.ReadLine();  // put this in Prompt4YOrN method with return options
+
+            Console.Clear();
+            return true;
         }
     }
 }
