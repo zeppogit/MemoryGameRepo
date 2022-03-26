@@ -45,12 +45,12 @@ namespace CodeLouisvilleLibrary
             Console.ReadKey();
         }
 
-        protected virtual void Goodbye()
+        protected virtual void Goodbye()   // NOTE:  USES METHOD BELOW IT
         {
             Console.WriteLine($"\nYou spent {CreateTimeSpentString(StartDate, EndDate)} playing {AppName}.");
             Console.WriteLine("I hope you enjoyed it and will come back again.");
         }
-
+        
         protected string CreateTimeSpentString(DateTime startTime, DateTime endTime)
         {
             TimeSpan timeSpent = endTime - startTime;
@@ -84,7 +84,7 @@ namespace CodeLouisvilleLibrary
             return timeSpentString.ToString();
         }
 
-        #region "Utility" methods. 
+        #region "Utility" methods. *************************************************************************
 
         public static int Prompt4Integer(string prompt)
         {
@@ -132,10 +132,13 @@ namespace CodeLouisvilleLibrary
             return default(T);
         }
 
-        // 'the type or namespace Menu<> could not be found ' error message
-        // commenting out next member until solved
-        /*
-               public static T Prompt4MenuItem<T>(string prompt, Menu<T> menu)
+
+
+
+        // NOTE: "the type or namespace Menu<> could not be found " error message
+        // shows in the next method unless Menu.cs is also in CodeLouisvilleLibrary project folder:
+        
+        public static T Prompt4MenuItem<T>(string prompt, Menu<T> menu)
                {
                    return Prompt4MenuItem(prompt, menu.MenuItems);
                }
@@ -144,7 +147,9 @@ namespace CodeLouisvilleLibrary
                {
                    return Prompt4MenuItem(prompt, menu.MenuItems);
                }
-        */
+        
+
+
 
         public static bool TryPrompt4Integer(out int value, string prompt = "", uint maxAttempts = 0, int minValue = int.MinValue, int maxValue = int.MaxValue)
         {
@@ -290,9 +295,9 @@ namespace CodeLouisvilleLibrary
 
 
 
-        // "the type or namespace Menu<> could not be found " error message
-       // shows unless Menu.cs is also in CodeLouisvilleLibrary project folder:
-        
+        // NOTE: "the type or namespace Menu<> could not be found " error message
+        // shows in the next method unless Menu.cs is also in CodeLouisvilleLibrary project folder:
+
         public static bool TryPrompt4MenuItem<T>(string prompt, Menu<T> menu, out T menuSelection, uint maxAttempts = 0)
               {
                   return TryPrompt4MenuItem(prompt, menu.MenuItems, out menuSelection, maxAttempts);
@@ -303,6 +308,7 @@ namespace CodeLouisvilleLibrary
 
 
         // the Animate member below is commented out because .CursorVisible only works in Windows
+
         /* public static void Animate(string[] parts, int pause = 500, int repeat = 1, bool clearWhenComplete = true, bool slide = false)
          {
              int Left = Console.CursorLeft;

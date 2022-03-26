@@ -54,7 +54,7 @@ namespace MemoryGame
             while (numberOfMatches < 7)
             {
 
-                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
                 displayGameBoard();
 
@@ -121,7 +121,7 @@ namespace MemoryGame
                     Console.WriteLine("Not a match!");
 
                     // ADD MENU TO PRESS Y TO CONTINUE OR N TO QUIT   OR... JUST MENTION OPTION TO PRESS Q TO QUIT
-                    Console.Clear();
+                    //Console.Clear();
 
                     //
                     displayStr[choice1] = numStr[choice1];
@@ -129,7 +129,7 @@ namespace MemoryGame
                 }
 
             } // END WHILE
-
+            
             Console.WriteLine("Would you like to play a new game?  Enter Y for yes, or N  to quit the program.");
             Console.ReadLine();  // put this in Prompt4YOrN method with return options
 
