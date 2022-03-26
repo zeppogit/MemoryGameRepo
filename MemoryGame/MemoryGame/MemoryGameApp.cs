@@ -117,7 +117,7 @@ namespace MemoryGame
                 else
                 {
                     Console.Clear();
-                    // ADD DISPLAY FUNCTION HERE
+                    displayGameBoard();  // ADD DISPLAY FUNCTION HERE
                     Console.WriteLine("Not a match!");
 
                     // ADD MENU TO PRESS Y TO CONTINUE OR N TO QUIT   OR... JUST MENTION OPTION TO PRESS Q TO QUIT
@@ -138,6 +138,7 @@ namespace MemoryGame
 
         } // END MAIN
 
+
         private void displayGameBoard()
         {
             Console.WriteLine();
@@ -151,7 +152,7 @@ namespace MemoryGame
         }
 
 
-        private void displaySolution()
+        private void displaySolution()  //FOR USE IN TESTING
         {
             for (int i = 0; i < 13; i++, i++, i++, i++)
             {

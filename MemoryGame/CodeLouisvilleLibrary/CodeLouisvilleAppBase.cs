@@ -288,14 +288,19 @@ namespace CodeLouisvilleLibrary
             return success;
         }
 
-        // 'the type or namespace Menu<> could not be found ' error message
-        // commenting out next member until solved
-        /*
+
+
+        // "the type or namespace Menu<> could not be found " error message
+       // shows unless Menu.cs is also in CodeLouisvilleLibrary project folder:
+        
         public static bool TryPrompt4MenuItem<T>(string prompt, Menu<T> menu, out T menuSelection, uint maxAttempts = 0)
               {
                   return TryPrompt4MenuItem(prompt, menu.MenuItems, out menuSelection, maxAttempts);
               }
-        */
+        
+
+
+
 
         // the Animate member below is commented out because .CursorVisible only works in Windows
         /* public static void Animate(string[] parts, int pause = 500, int repeat = 1, bool clearWhenComplete = true, bool slide = false)
