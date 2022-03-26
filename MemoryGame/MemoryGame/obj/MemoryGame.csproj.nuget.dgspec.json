@@ -77,7 +77,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj": {
+                "projectPath": "/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/CodeLouisvilleLibrary/CodeLouisvilleLibrary.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "GameLibrary/1.0.0": {
+        "dependencies": {
+          "CodeLouisvilleLibrary": "1.0.0"
+        },
         "runtime": {
           "GameLibrary.dll": {}
+        }
+      },
+      "CodeLouisvilleLibrary/1.0.0": {
+        "runtime": {
+          "CodeLouisvilleLibrary.dll": {}
         }
       }
     }
   },
   "libraries": {
     "GameLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CodeLouisvilleLibrary/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

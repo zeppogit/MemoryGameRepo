@@ -10,3 +10,6 @@
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/obj/Debug/net6.0/refint/GameLibrary.dll
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/obj/Debug/net6.0/GameLibrary.pdb
 /Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/obj/Debug/net6.0/ref/GameLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/bin/Debug/net6.0/CodeLouisvilleLibrary.dll
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/bin/Debug/net6.0/CodeLouisvilleLibrary.pdb
+/Users/jsweeney/Projects/MemoryGameRepo/MemoryGame/GameLibrary/obj/Debug/net6.0/GameLibrary.csproj.CopyComplete

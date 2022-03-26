@@ -21,6 +21,9 @@
         }
       },
       "GameLibrary/1.0.0": {
+        "dependencies": {
+          "CodeLouisvilleLibrary": "1.0.0"
+        },
         "runtime": {
           "GameLibrary.dll": {}
         }
