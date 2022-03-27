@@ -13,6 +13,7 @@ namespace MemoryGame
 
         private static List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
 
+
         /// THIS LING QUERY WILL GO INTO A DisplayGameBoard() method in GameBoard.cs class ////////////////////////
         /// 
         // The Three Parts of a LINQ Query:
@@ -25,6 +26,7 @@ namespace MemoryGame
         // PART 2. Query creation:
 
         private static Random r = new Random();   //System.Random()
+
         private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();
             // Take(16) not necessary until list becomes larger than 16,
             // where the parameter now shown as 16 will become an option selected by player before game board appears
@@ -83,6 +85,8 @@ namespace MemoryGame
 
         } // END MAIN
 
+
+
         private static void gamePlay()
         {
 
@@ -108,6 +112,7 @@ namespace MemoryGame
                 {
                     if (choice1 == 0)
                     {
+                        Console.WriteLine("Quitting.\n");
                         break;
                     }
                     else if (shuffledStr[choice1 - 1] == " XX ")
@@ -123,6 +128,11 @@ namespace MemoryGame
                         Console.WriteLine("\nTEST - INPUT NOT 0 OR A NUMBER ALREADY OFF THE BOARD\n");
                         displayStr[choice1 - 1] = shuffledStr[choice1 - 1];
                     }
+                }
+                else if (!validInput)
+                {
+                    Console.WriteLine("Quitting.\n");
+                    break;
                 }
 
                 Console.Clear();

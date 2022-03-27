@@ -284,7 +284,7 @@ namespace CodeLouisvilleLibrary
 
                 // quit when they've selected a menu option like we've asked
                 // OR they've exceeded the maximum number of allowed attempts
-                quit = success || attempt >= maxAttempts;
+                quit = success || (attempt >= maxAttempts);
 
                 if (!quit) Console.WriteLine();
 
