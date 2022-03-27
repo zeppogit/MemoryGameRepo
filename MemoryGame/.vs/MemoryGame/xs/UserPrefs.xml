@@ -1,13 +1,17 @@
 ﻿<Properties StartupConfiguration="{EF4C9FD7-B6D7-4D56-9410-6E30F1C886A3}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workbench ActiveDocument="MemoryGame/MemoryGameApp.cs">
     <Files>
-      <File FileName="MemoryGame/MemoryGameApp.cs" Line="36" Column="29" />
-      <File FileName="CodeLouisvilleLibrary/CodeLouisvilleAppBase.cs" Line="297" Column="1" />
+      <File FileName="MemoryGame/MemoryGameApp.cs" Line="72" Column="1" />
+      <File FileName="CodeLouisvilleLibrary/CodeLouisvilleAppBase.cs" Line="288" Column="1" />
       <File FileName="MemoryGame/Program.cs" Line="1" Column="1" />
-      <File FileName="GameLibrary/Words.cs" Line="1" Column="1" />
-      <File FileName="GameLibrary/Player.cs" Line="1" Column="1" />
+      <File FileName="CodeLouisvilleLibrary/Menu.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,9 +28,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
 </Properties>

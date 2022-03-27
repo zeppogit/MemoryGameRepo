@@ -50,11 +50,13 @@ namespace MemoryGame
         {
             bool quit = false;
 
+
             var menu = new Menu<char>();
 
             menu.AddMenuItem('S', "Play small board");
-            //menu.AddMenuItem('L', "Play large board");
+            menu.AddMenuItem('L', "Play large board");
             menu.AddMenuItem('Q', "Quit");
+
 
             char menuSelection;
             bool validInput = false;
@@ -65,14 +67,16 @@ namespace MemoryGame
                     case 'S':
                         gamePlay();  //later:  gameplay(16)  16 squares 
                         break;
-                    //case 'L':
-                    //  gamePlay(24) etc //24 squares    
-                    //    break;
+                    case 'L':
+                        //  gamePlay(24) etc //24 squares
+                        Console.WriteLine("\nWHOOOOPS!!!!  TEST CODE\n");
+                        break;
                     case 'Q':
                         quit = true;
                         break;
                 }
             }
+
 
             if (!validInput)
             {
@@ -80,7 +84,7 @@ namespace MemoryGame
 
             }
 
-            return quit;
+            return !quit;
 
 
         } // END MAIN
@@ -100,7 +104,7 @@ namespace MemoryGame
 
                 displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
-
+                Console.Clear();
                 displayGameBoard();
 
 
@@ -258,13 +262,14 @@ namespace MemoryGame
             for (int i = 0; i < 13; i++, i++, i++, i++)
             {
                 Console.WriteLine("    " + shuffledStr[i] + "    " + shuffledStr[i + 1] + "    " + shuffledStr[i + 2] + "    " + shuffledStr[i + 3]);
-                Console.WriteLine();  
-
+                Console.WriteLine();
             }
+            Console.WriteLine("SOLUTION DISPLAYED ABOVE FOR TESTING.  TAKE SCREENSHOT\n");
+
         }
 
         ///////// CAN USE FOR TESTING TO VIEW FULL DATA SOURCE INSTEAD A GAME BOARD DISPLAY:  
-  
+
         //private void createGameSolutionString()
         //{
         //    Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));
