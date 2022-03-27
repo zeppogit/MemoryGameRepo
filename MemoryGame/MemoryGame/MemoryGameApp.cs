@@ -50,45 +50,96 @@ namespace MemoryGame
             int numberOfTurns = 0;
             int numberOfMatches = 0;
 
+            bool validInput = false;
 
             while (numberOfMatches < 7)
             {
 
+                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+
+                displayGameBoard();
+
+
+                ///////////// Game Board now displayed, and Game Play begins //////////////////////////////////////
+
+                int choice1;
+                if (validInput = TryPrompt4Integer(out choice1, "Pick a number on the board to reveal. (0 to Quit):  ", 4, 0, 16))
+                    // max tries 4 / min value accepted 0 / max value 16
+                {
+                    if (choice1 == 0)
+                    {
+                        break;
+                    }
+                    else if (shuffledStr[choice1 - 1] == " XX ")
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\nThat number is no longer on the board.  ");
+                        WaitForAnyKeyPress();
+                        Console.Clear();
+                        continue;
+                    }
+                    else if (shuffledStr[choice1 - 1] != " XX ")
+                    {
+                        Console.WriteLine("\nTEST - INPUT NOT 0 OR A NUMBER ALREADY OFF THE BOARD\n");
+                        displayStr[choice1 - 1] = shuffledStr[choice1 - 1];
+                    }
+                }
+
+                Console.Clear();
+
+                //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                displayGameBoard();
+
+                /////////////////
+                int choice2;
+
+                if (validInput = TryPrompt4Integer(out choice2, "\nPick another number on the board to reveal. (0 to Quit):  ", 4, 0, 16));
+                     // max tries 4 / min value accepted 0 / max value 16
+                {
+                    if (choice2 == 0)
+                    {
+                        Console.WriteLine("\nYou have quit this game.\n  ");
+                        break;
+                    }
+                    if (shuffledStr[choice2 - 1] == " XX ")
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\nThat number is no longer on the board.  What's the matter with you?  A wiseguy?");
+                        displayStr[choice1 - 1] = numStr[choice1 - 1];
+                        WaitForAnyKeyPress();
+                        Console.Clear();
+                        continue;
+                    }
+
+//                   else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
+                    else if (choice2 == choice1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\nThat is the same number as your first choice.  ");
+                        displayStr[choice1 - 1] = numStr[choice1 - 1];
+                        displayStr[choice2 - 1] = numStr[choice2 - 1];
+                        WaitForAnyKeyPress();
+                        Console.Clear();
+ 
+                    }
+                    if (choice2 != choice1)
+                    {
+                        displayStr[choice2 - 1] = shuffledStr[choice2 - 1];
+                    }
+                }
+
+                //////////////////// END CHOICES,  BEGIN COMPARISON
+
+                Console.Clear();
                 //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
-                displayGameBoard();
-
-
-                // Game Board now displayed, and Game Play begins //////////////////////////////////////
-
-                Console.WriteLine("Pick a number to reveal. (Q to Quit)");
-
-                int choice1 = -1 + Int32.Parse(Console.ReadLine());  // add code to prevent null?
-                int compare1 = choice1;
-                displayStr[choice1] = shuffledStr[choice1];
-
-
-                Console.Clear();
-
-                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-                displayGameBoard();
-
-
-                Console.WriteLine("Pick another number to reveal. (Q to Quit)");
-
-                int choice2 = -1 + Int32.Parse(Console.ReadLine());   // add code to accept only numbers available on screen and  prevent null
-                Console.WriteLine();
-                displayStr[choice2] = shuffledStr[choice2];
-
-                Console.Clear();
-                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-
-                displayGameBoard();
-
+  //              displayGameBoard();
+ //               Console.WriteLine("WAIT HERE BEFORE COMPARISON OF CHOICE 1 AND 2 DISPLAY STRINGS");
+  //              WaitForAnyKeyPress();
 
                 numberOfTurns++;
 
-                if (displayStr[choice1] == displayStr[choice2])
+                if ( (displayStr[choice1 - 1] == displayStr[choice2 - 1] )  && (choice2 != choice1))
                 {
                     numberOfMatches++;
 
@@ -96,47 +147,60 @@ namespace MemoryGame
 
 
                     Console.Clear();
-                    Console.WriteLine("A match!");
+                    Console.WriteLine("\nA match!");
                     Console.WriteLine($"That is match number {numberOfMatches}.");
-                    // create a prompt function "press Y to continue or Q to quit"  etc
-                    //   where if Y, a Console.Clear() runs.
+                    WaitForAnyKeyPress();
+                    Console.Clear();
+                    ////////////////////////////////////////////////////////////////
+                    //Console.WriteLine($"Choice 1 was {choice1}\n\n");
+
+                    shuffledStr[choice1 - 1] = " XX ";
+                    shuffledStr[choice2 - 1] = " XX ";
+
+                    //displaySolution();
+                    Console.WriteLine();
+                    ////////////////////////////////////////////////////////////////
 
 
-                    //Console.WriteLine();
                     if (numberOfMatches == 7)
                     {
                         Console.Clear();
-
                         displayGameBoard();
 
-
-                        Console.Write($"There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}.  ");
-                        Console.WriteLine();
+                        Console.Write($"There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}.  \n");
+ 
                     }
                 }
+                
+                //else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
                 else
                 {
                     Console.Clear();
-                    displayGameBoard();  // ADD DISPLAY FUNCTION HERE
+                    displayGameBoard();
                     Console.WriteLine("Not a match!");
-
-                    // ADD MENU TO PRESS Y TO CONTINUE OR N TO QUIT   OR... JUST MENTION OPTION TO PRESS Q TO QUIT
-                    //Console.Clear();
-
-                    //
-                    displayStr[choice1] = numStr[choice1];
-                    displayStr[choice2] = numStr[choice2];
+                    WaitForAnyKeyPress();
+                    Console.Clear();
+                    displayStr[choice1 - 1] = numStr[choice1 - 1];
+                    displayStr[choice2 - 1] = numStr[choice2 - 1];
                 }
 
             } // END WHILE
-            
-            Console.WriteLine("Would you like to play a new game?  Enter Y for yes, or N  to quit the program.");
+
+            Console.WriteLine("\nWould you like to play a new round?  Enter Y for yes, or N  to quit the program.");
             Console.ReadLine();  // put this in Prompt4YOrN method with return options
 
             Console.Clear();
             return true;
 
         } // END MAIN
+
+
+        private static void WaitForAnyKeyPress()
+        {
+            Console.WriteLine("\nPress any key to continue....");
+            Console.ReadKey(true);
+        }
+
 
 
         private void displayGameBoard()
