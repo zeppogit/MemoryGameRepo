@@ -46,148 +46,40 @@ namespace MemoryGame
 
         protected override bool Main()
         {
+            bool quit = false;
 
-            gamePlay();
+            var menu = new Menu<char>();
 
-//            int numberOfTurns = 0;
-//            int numberOfMatches = 0;
+            menu.AddMenuItem('S', "Play small board");
+            //menu.AddMenuItem('L', "Play large board");
+            menu.AddMenuItem('Q', "Quit");
 
-//            bool validInput = false;
+            char menuSelection;
+            bool validInput = false;
+            if (validInput = TryPrompt4MenuItem<char>("Please select one of the following options:", menu, out menuSelection, 5))
+            {
+                switch (menuSelection)
+                {
+                    case 'S':
+                        gamePlay();  //later:  gameplay(16)  16 squares 
+                        break;
+                    //case 'L':
+                    //  gamePlay(24) etc //24 squares    
+                    //    break;
+                    case 'Q':
+                        quit = true;
+                        break;
+                }
+            }
 
-//            while (numberOfMatches < 7)
-//            {
+            if (!validInput)
+            {
+                Console.WriteLine("\nSorry your input was not valid.");
 
-//                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+            }
 
+            return quit;
 
-//                displayGameBoard();
-
-
-//                ///////////// Game Board now displayed, and Game Play begins //////////////////////////////////////
-
-//                int choice1;
-//                if (validInput = TryPrompt4Integer(out choice1, "Pick a number on the board to reveal. (0 to Quit):  ", 4, 0, 16))
-//                    // max tries 4 / min value accepted 0 / max value 16
-//                {
-//                    if (choice1 == 0)
-//                    {
-//                        break;
-//                    }
-//                    else if (shuffledStr[choice1 - 1] == " XX ")
-//                    {
-//                        Console.Clear();
-//                        Console.WriteLine("\nThat number is no longer on the board.  ");
-//                        WaitForAnyKeyPress();
-//                        Console.Clear();
-//                        continue;
-//                    }
-//                    else if (shuffledStr[choice1 - 1] != " XX ")
-//                    {
-//                        Console.WriteLine("\nTEST - INPUT NOT 0 OR A NUMBER ALREADY OFF THE BOARD\n");
-//                        displayStr[choice1 - 1] = shuffledStr[choice1 - 1];
-//                    }
-//                }
-
-//                Console.Clear();
-
-//                //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-//                displayGameBoard();
-
-//                /////////////////
-//                int choice2;
-
-//                if (validInput = TryPrompt4Integer(out choice2, "\nPick another number on the board to reveal. (0 to Quit):  ", 4, 0, 16));
-//                     // max tries 4 / min value accepted 0 / max value 16
-//                {
-//                    if (choice2 == 0)
-//                    {
-//                        Console.WriteLine("\nYou have quit this game.\n  ");
-//                        break;
-//                    }
-//                    if (shuffledStr[choice2 - 1] == " XX ")
-//                    {
-//                        Console.Clear();
-//                        Console.WriteLine("\nThat number is no longer on the board.  What's the matter with you?  A wiseguy?");
-//                        displayStr[choice1 - 1] = numStr[choice1 - 1];
-//                        WaitForAnyKeyPress();
-//                        Console.Clear();
-//                        continue;  // turn will be evaluated as "Not a match!"
-//                    }
-
-////                   else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
-//                    else if (choice2 == choice1)
-//                    {
-//                        Console.Clear();
-//                        Console.WriteLine("\nThat is the same number as your first choice.  ");
-//                        displayStr[choice1 - 1] = numStr[choice1 - 1];
-//                        displayStr[choice2 - 1] = numStr[choice2 - 1];
-//                        WaitForAnyKeyPress();
-//                        Console.Clear();
- 
-//                    }
-//                    if (choice2 != choice1)
-//                    {
-//                        displayStr[choice2 - 1] = shuffledStr[choice2 - 1];
-//                    }
-//                }
-
-//                //////////////////// END CHOICES,  BEGIN EVALUATE TURN  /////////////////////////
-
-//                Console.Clear();
-
-//                numberOfTurns++;
-
-//                if ( (displayStr[choice1 - 1] == displayStr[choice2 - 1] )  && (choice2 != choice1))
-//                {
-//                    numberOfMatches++;
-
-//                    displayGameBoard();
-
-
-//                    Console.Clear();
-//                    Console.WriteLine("\nA match!");
-//                    Console.WriteLine($"That is match number {numberOfMatches}.");
-//                    WaitForAnyKeyPress();
-//                    Console.Clear();
-
-//                    // SET STRING VALUES OF MATCHES TO ASSIST TESTING FUTURE ATTEMPTS TO SELECT THEM AGAIN
-//                    shuffledStr[choice1 - 1] = " XX ";
-//                    shuffledStr[choice2 - 1] = " XX ";
-
-//                    Console.WriteLine();
- 
-
-
-//                    if (numberOfMatches == 7)
-//                    {
-//                        Console.Clear();
-//                        displayGameBoard();
-
-//                        Console.Write($"There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}.  \n");
- 
-//                    }
-//                }
-                
-//                //else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
-//                else
-//                {
-//                    Console.Clear();
-//                    displayGameBoard();
-//                    Console.WriteLine("Not a match!");
-//                    WaitForAnyKeyPress();
-//                    Console.Clear();
-//                    displayStr[choice1 - 1] = numStr[choice1 - 1];
-//                    displayStr[choice2 - 1] = numStr[choice2 - 1];
-//                }
-
-//            } // END WHILE LOOP
-
-
-            Console.WriteLine("\nWould you like to play a new round?  Enter Y for yes, or N  to quit the program.");
-            Console.ReadLine();  // put this in Prompt4YOrN method with return options
-
-            Console.Clear();
-            return true;
 
         } // END MAIN
 
