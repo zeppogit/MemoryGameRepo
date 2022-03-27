@@ -60,7 +60,7 @@ namespace MemoryGame
 
             char menuSelection;
             bool validInput = false;
-            if (validInput = TryPrompt4MenuItem<char>("Please select one of the following options:", menu, out menuSelection, 5))
+            if (validInput = TryPrompt4MenuItem<char>("\nPlease select one of the following options:", menu, out menuSelection, 5))
             {
                 switch (menuSelection)
                 {
@@ -81,7 +81,7 @@ namespace MemoryGame
             if (!validInput)
             {
                 Console.WriteLine("\nSorry your input was not valid.");
-
+                return quit;
             }
 
             return !quit;
@@ -214,7 +214,7 @@ namespace MemoryGame
                         Console.Clear();
                         displayGameBoard();
 
-                        Console.Write($"There is only one match left to reveal, so you have solved the puzzle on turn number {numberOfTurns}.  \n");
+                        Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.");
 
                     }
                 }
