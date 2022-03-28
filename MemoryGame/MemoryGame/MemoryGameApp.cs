@@ -1,7 +1,8 @@
 ﻿using System;
-using CodeLouisvilleLibrary;   // ALSO INHERITS FROM A CLASS IT CONTAINS 
+using CodeLouisvilleLibrary; 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace MemoryGame
@@ -13,35 +14,19 @@ namespace MemoryGame
 
         private static List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
 
-
-        /// THIS LING QUERY WILL GO INTO A DisplayGameBoard() method in GameBoard.cs class ////////////////////////
-        /// 
-        // The Three Parts of a LINQ Query:
-        // https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries
-        // PART 1. Data source:
-
         private static List<string> words = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE" };
 
-        // The Three Parts of a LINQ Query:
-        // PART 2. Query creation:
+// The Three Parts of a LINQ Query:
+// PART 2. Query creation:
 
-        private static Random r = new Random();   //System.Random()
+private static Random r = new Random();   //System.Random()
 
-        private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();
-            // Take(16) not necessary until list becomes larger than 16,
-            // where the parameter now shown as 16 will become an option selected by player before game board appears
+private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();
 
-     
 
         public MemoryGameApp() : base("Memory Game")  // name in quotes provided to be implemented in Welcome()
-
-			// may take parameter variable storing json filepath defined in Program.cs
 		{
-			// may take block of code instantiating object that property of a  list of possible words (taken from json)
-			// creation of object would run deserializer
-
-
-			//public MemoryGameApp(string saveFilePath) : base("Memory Game")
+		
 		}
 
 
@@ -110,6 +95,9 @@ namespace MemoryGame
 
                 ///////////// Game Board now displayed, and Game Play begins //////////////////////////////////////
 
+
+      ////////////////////////////  CHOICE 1  ///////////////////////////
+      
                 int choice1;
                 if (validInput = TryPrompt4Integer(out choice1, "Pick a number on the board to reveal. (0 to Quit):  ", 4, 0, 16))
                 // max tries 4 / min value accepted 0 / max value 16
@@ -144,7 +132,9 @@ namespace MemoryGame
                 //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 displayGameBoard();
 
-                /////////////////
+
+     ////////////////////////////  CHOICE 2  ///////////////////////////
+     
                 int choice2;
 
                 if (validInput = TryPrompt4Integer(out choice2, "\nPick another number on the board to reveal. (0 to Quit):  ", 4, 0, 16)) ;
@@ -182,7 +172,7 @@ namespace MemoryGame
                     }
                 }
 
-                //////////////////// END CHOICES,  BEGIN EVALUATE TURN  /////////////////////////
+     //////////////////// END CHOICES,  BEGIN EVALUATE TURN  /////////////////////////
 
                 Console.Clear();
 
