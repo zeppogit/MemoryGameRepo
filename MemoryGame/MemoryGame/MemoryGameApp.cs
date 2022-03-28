@@ -102,9 +102,9 @@ namespace MemoryGame
             while (numberOfMatches < 7)
             {
 
-                displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                displaySolution();  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                //Console.Clear();   // uncomment this for actual gameplay when done testing
 
-                Console.Clear();
                 displayGameBoard();
 
 
@@ -129,17 +129,17 @@ namespace MemoryGame
                     }
                     else if (shuffledStr[choice1 - 1] != " XX ")
                     {
-                        Console.WriteLine("\nTEST - INPUT NOT 0 OR A NUMBER ALREADY OFF THE BOARD\n");
+                        Console.Clear();
                         displayStr[choice1 - 1] = shuffledStr[choice1 - 1];
                     }
                 }
                 else if (!validInput)
                 {
-                    Console.WriteLine("Quitting.\n");
+                    //Console.WriteLine();
+                    Console.WriteLine("\nQuitting this game.  Too many failed attempts. \n\n");
                     break;
                 }
 
-                Console.Clear();
 
                 //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 displayGameBoard();
@@ -214,7 +214,7 @@ namespace MemoryGame
                         Console.Clear();
                         displayGameBoard();
 
-                        Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.");
+                        Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.\n\n");
 
                     }
                 }
@@ -264,7 +264,7 @@ namespace MemoryGame
                 Console.WriteLine("    " + shuffledStr[i] + "    " + shuffledStr[i + 1] + "    " + shuffledStr[i + 2] + "    " + shuffledStr[i + 3]);
                 Console.WriteLine();
             }
-            Console.WriteLine("SOLUTION DISPLAYED ABOVE FOR TESTING.  TAKE SCREENSHOT\n");
+            Console.WriteLine("SOLUTION DISPLAYED ABOVE FOR TESTING USE\n");
 
         }
 
