@@ -248,7 +248,7 @@ namespace MemoryGame
         {
             Console.WriteLine();
 
-            for (int i = 0; i < 13; i++, i++, i++, i++)
+            for (int i = 0; i < 13; i+=4)
             {
                 Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
                 Console.WriteLine();
@@ -259,7 +259,7 @@ namespace MemoryGame
 
         private static void displaySolution()  //FOR USE IN TESTING
         {
-            for (int i = 0; i < 13; i++, i++, i++, i++)
+            for (int i = 0; i < 13; i+=4)
             {
                 Console.WriteLine("    " + shuffledStr[i] + "    " + shuffledStr[i + 1] + "    " + shuffledStr[i + 2] + "    " + shuffledStr[i + 3]);
                 Console.WriteLine();
