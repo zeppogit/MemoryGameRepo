@@ -3,25 +3,17 @@ using CodeLouisvilleLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using GameLibrary;
 
 namespace MemoryGame
 {
-	public class MemoryGameApp : CodeLouisvilleAppBase
-	{
+    public class MemoryGameApp : CodeLouisvilleAppBase
+    {
 
-        private static List<string> numStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
+        private static List<string> numStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 ", " 17 ", " 18 ", " 19 ", " 20 ", " 21 ", " 22 ", " 23 ", " 24 ", " 25 ", " 26 ", " 27 ", " 28 ", " 29 ", " 30 ", " 31 ", " 32 ", " 33 ", " 34 ", " 35 ", " 36 " };
 
-        private static List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 " };
+        private static List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 ", " 17 ", " 18 ", " 19 ", " 20 ", " 21 ", " 22 ", " 23 ", " 24 ", " 25 ", " 26 ", " 27 ", " 28 ", " 29 ", " 30 ", " 31 ", " 32 ", " 33 ", " 34 ", " 35 ", " 36 "};
 
-        private static List<string> words = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE" };
-
-// The Three Parts of a LINQ Query:
-// PART 2. Query creation:
-
-private static Random r = new Random();   //System.Random()
-
-private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).ToList();
 
 
         public MemoryGameApp() : base("Memory Game")  // name in quotes provided to be implemented in Welcome()
@@ -30,11 +22,9 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
 		}
 
 
-
         protected override bool Main()
         {
             bool quit = false;
-
 
             var menu = new Menu<char>();
 
@@ -45,16 +35,22 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
 
             char menuSelection;
             bool validInput = false;
+
+
             if (validInput = TryPrompt4MenuItem<char>("\nPlease select one of the following options:", menu, out menuSelection, 5))
-            {
+            { 
                 switch (menuSelection)
                 {
                     case 'S':
-                        gamePlay();  //later:  gameplay(16)  16 squares 
+                        Words.CreateGameWords(8);
+                        //Words.Words(8);
+                        //Words.numWords = 8;
+                        gamePlay(8);  //later:  gameplay(16)  16 squares 
                         break;
                     case 'L':
-                        //  gamePlay(24) etc //24 squares
-                        Console.WriteLine("\nWHOOOOPS!!!!  TEST CODE\n");
+                        Words.CreateGameWords(18);
+                        //Words.numWords = 18;
+                        gamePlay(18); //36 squares
                         break;
                     case 'Q':
                         quit = true;
@@ -76,21 +72,24 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
 
 
 
-        private static void gamePlay()
+        private static void gamePlay(int num)
         {
-
+            int numOfWords = num;
             int numberOfTurns = 0;
             int numberOfMatches = 0;
 
             bool validInput = false;
 
-            while (numberOfMatches < 7)
+            while (numberOfMatches < (numOfWords - 1 ))
             {
 
-                displaySolution();  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                //createGameSolutionString(); // FOR TESTING
+                //WaitForAnyKeyPress();     //  FOR TESTING
+
+                displaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 //Console.Clear();   // uncomment this for actual gameplay when done testing
 
-                displayGameBoard();
+                displayGameBoard(numOfWords);
 
 
                 ///////////// Game Board now displayed, and Game Play begins //////////////////////////////////////
@@ -99,15 +98,16 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
       ////////////////////////////  CHOICE 1  ///////////////////////////
       
                 int choice1;
-                if (validInput = TryPrompt4Integer(out choice1, "Pick a number on the board to reveal. (0 to Quit):  ", 4, 0, 16))
-                // max tries 4 / min value accepted 0 / max value 16
+              
+                if (validInput = TryPrompt4Integer(out choice1, "Pick a number on the board to reveal. (0 to Quit):  ", 4, 0, (numOfWords * 2)))
+                // max tries 4 / min value accepted 0 / max value 16 if numOfWords is 8, otherwise 36
                 {
                     if (choice1 == 0)
                     {
                         Console.WriteLine("Quitting.\n");
                         break;
                     }
-                    else if (shuffledStr[choice1 - 1] == " XX ")
+                    else if (Words.shuffledStr[choice1 - 1] == " XX ")
                     {
                         Console.Clear();
                         Console.WriteLine("\nThat number is no longer on the board.  ");
@@ -115,10 +115,10 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                         Console.Clear();
                         continue;
                     }
-                    else if (shuffledStr[choice1 - 1] != " XX ")
+                    else if (Words.shuffledStr[choice1 - 1] != " XX ")
                     {
                         Console.Clear();
-                        displayStr[choice1 - 1] = shuffledStr[choice1 - 1];
+                        displayStr[choice1 - 1] = Words.shuffledStr[choice1 - 1];
                     }
                 }
                 else if (!validInput)
@@ -129,15 +129,15 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                 }
 
 
-                //displaySolution();  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-                displayGameBoard();
+                //displaySolution(numOfWords);  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                displayGameBoard(numOfWords);
 
 
      ////////////////////////////  CHOICE 2  ///////////////////////////
      
                 int choice2;
 
-                if (validInput = TryPrompt4Integer(out choice2, "\nPick another number on the board to reveal. (0 to Quit):  ", 4, 0, 16)) ;
+                if (validInput = TryPrompt4Integer(out choice2, "\nPick another number on the board to reveal. (0 to Quit):  ", 4, 0, (numOfWords * 2))) ;
                 // max tries 4 / min value accepted 0 / max value 16
                 {
                     if (choice2 == 0)
@@ -145,7 +145,7 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                         Console.WriteLine("\nYou have quit this game.\n  ");
                         break;
                     }
-                    if (shuffledStr[choice2 - 1] == " XX ")
+                    if (Words.shuffledStr[choice2 - 1] == " XX ")
                     {
                         Console.Clear();
                         Console.WriteLine("\nThat number is no longer on the board.  What's the matter with you?  A wiseguy?");
@@ -155,7 +155,7 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                         continue;  // turn will be evaluated as "Not a match!"
                     }
 
-                    //                   else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
+                    //                   else if ((choice2 == choice1) || (shuffledStrL[choice2 - 1] == " XX "))
                     else if (choice2 == choice1)
                     {
                         Console.Clear();
@@ -168,7 +168,7 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                     }
                     if (choice2 != choice1)
                     {
-                        displayStr[choice2 - 1] = shuffledStr[choice2 - 1];
+                        displayStr[choice2 - 1] = Words.shuffledStr[choice2 - 1];
                     }
                 }
 
@@ -182,7 +182,7 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                 {
                     numberOfMatches++;
 
-                    displayGameBoard();
+                    displayGameBoard(numOfWords);
 
 
                     Console.Clear();
@@ -192,28 +192,28 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
                     Console.Clear();
 
                     // SET STRING VALUES OF MATCHES TO ASSIST TESTING FUTURE ATTEMPTS TO SELECT THEM AGAIN
-                    shuffledStr[choice1 - 1] = " XX ";
-                    shuffledStr[choice2 - 1] = " XX ";
+                    Words.shuffledStr[choice1 - 1] = " XX ";
+                    Words.shuffledStr[choice2 - 1] = " XX ";
 
                     Console.WriteLine();
 
 
 
-                    if (numberOfMatches == 7)
+                    if (numberOfMatches == (numOfWords - 1))
                     {
                         Console.Clear();
-                        displayGameBoard();
+                        displayGameBoard(numOfWords);
 
                         Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.\n\n");
 
                     }
                 }
 
-                //else if ((choice2 == choice1) || (shuffledStr[choice2 - 1] == " XX "))
+                //else if ((choice2 == choice1) || (shuffledStrL[choice2 - 1] == " XX "))
                 else
                 {
                     Console.Clear();
-                    displayGameBoard();
+                    displayGameBoard(numOfWords);
                     Console.WriteLine("Not a match!");
                     WaitForAnyKeyPress();
                     Console.Clear();
@@ -234,37 +234,62 @@ private static List<string> shuffledStr = words.OrderBy(w => r.Next()).Take(16).
 
 
 
-        private static void displayGameBoard()
+        private static void displayGameBoard(int num)
+        {
+            Console.WriteLine();
+            if (num == 8)
+            {
+                for (int i = 0; i < 13; i += 4)
+                {
+                    Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
+                    Console.WriteLine();
+
+                }
+            }
+            if (num == 18)
+            {
+                for (int i = 0; i < 31; i += 6)
+                {
+                    Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3] + "    " + displayStr[i + 4] + "    " + displayStr[i + 5]);
+                    Console.WriteLine();
+
+                }
+            }
+        }
+
+//////////////////// FUNCTIONS TO ASSIST WITH  TESTING APP  ///////////////////////////////////////////////
+
+        private static void displaySolution(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
         {
             Console.WriteLine();
 
-            for (int i = 0; i < 13; i+=4)
+            if (num == 8)
             {
-                Console.WriteLine("    " + displayStr[i] + "    " + displayStr[i + 1] + "    " + displayStr[i + 2] + "    " + displayStr[i + 3]);
-                Console.WriteLine();
-                
+                for (int i = 0; i < 13; i += 4)
+                {
+                    Console.WriteLine("    " + Words.shuffledStr[i] + "    " + Words.shuffledStr[i + 1] + "    " + Words.shuffledStr[i + 2] + "    " + Words.shuffledStr[i + 3]);
+                    Console.WriteLine();
+                }
             }
-        }
-
-
-        private static void displaySolution()  //FOR USE IN TESTING
-        {
-            for (int i = 0; i < 13; i+=4)
+            if (num == 18)
             {
-                Console.WriteLine("    " + shuffledStr[i] + "    " + shuffledStr[i + 1] + "    " + shuffledStr[i + 2] + "    " + shuffledStr[i + 3]);
-                Console.WriteLine();
+                for (int i = 0; i < 31; i += 6)
+                {
+                    Console.WriteLine("    " + Words.shuffledStr[i] + "    " + Words.shuffledStr[i + 1] + "    " + Words.shuffledStr[i + 2] + "    " + Words.shuffledStr[i + 3] + "    " + Words.shuffledStr[i + 4] + "    " + Words.shuffledStr[i + 5]);
+                    Console.WriteLine();
+                }
             }
             Console.WriteLine("SOLUTION DISPLAYED ABOVE FOR TESTING USE\n");
-
         }
 
-        ///////// CAN USE FOR TESTING TO VIEW FULL DATA SOURCE INSTEAD A GAME BOARD DISPLAY:  
 
-        //private void createGameSolutionString()
-        //{
-        //    Console.WriteLine(string.Join(", ", shuffledStr.ToArray()));
-        //    Console.WriteLine();
-        //}
+        private static void createGameSolutionString()  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
+        {
+            Console.WriteLine();
+            Console.WriteLine("TEST NOTE: Here are the words used");
+            Console.WriteLine(string.Join(", ", Words.shuffledStr.ToArray()));
+            Console.WriteLine();
+        }
     }
 }
 
