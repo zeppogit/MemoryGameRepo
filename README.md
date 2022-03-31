@@ -4,11 +4,10 @@
 # Introduction
 This repository is for my Code Louisville Winter 2022 C# course project. 
 
-UNDER CONSTRUCTION
 
 # Description
 
-Classic memory testing game similar to Classic Concentration single player with the most basic of rules.  At this time object is to uncover all the matching words on the board in as few turns as you can, relying on memory to help you make matches.
+Classic memory testing game similar to Classic Concentration single player with the most basic of rules.  Object is to uncover all the matching words on the board in as few turns as you can, relying on memory to help you make matches.
 
 
 ## Technical Instructions
