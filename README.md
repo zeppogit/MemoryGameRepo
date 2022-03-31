@@ -14,7 +14,7 @@ Classic memory testing game similar to Classic Concentration single player with 
 
 FOR TESTING PURPOSES
 
-      In MemoryGameApp.cs it is advised to uncomment line 83, which for normal game play shows as:
+In MemoryGameApp.cs it is advised to uncomment line 83, which for normal game play shows as:
 
       //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
