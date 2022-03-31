@@ -36,7 +36,8 @@ This will allow you to see the solution to the game as you test it.  Then revers
 
 	[ DisplayGameBoard()
 	  WaitForAnyKeyPress()
-	  CreateGameWords()  
+	  CreateGameWords()
+	  DisplaySolution()  
 	  ShowSolutionQuitGame() ]
 
 √ - one of these must return a value that is used in the application
