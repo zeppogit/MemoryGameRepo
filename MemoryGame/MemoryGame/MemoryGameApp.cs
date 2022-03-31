@@ -79,11 +79,9 @@ namespace MemoryGame
             while (numberOfMatches < (numOfWords - 1 ))
             {
 
-                //CreateGameSolutionString(); // FOR TESTING
-                //WaitForAnyKeyPress();     //  FOR TESTING
 
                 //DisplaySolutionForTesting(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-                Console.Clear();   // uncomment this for actual gameplay when done testing
+                Console.Clear();   // 'Un-comment' this for actual gameplay.  But comment out if un-commenting previous line for testing.
 
                 DisplayGameBoard(numOfWords);
 
@@ -101,11 +99,6 @@ namespace MemoryGame
                     if (choice1 == 0)
                     {
                         ShowSolutionQuitGame(numOfWords);
-                        //Console.Clear();
-                        //Console.WriteLine("Quitting.\n");
-                        //DisplaySolution(numOfWords);
-                        //WaitForAnyKeyPress();
-                        //Console.Clear();
                         break;
                     }
                     else if (Words.shuffledStr[choice1 - 1] == " XX ")
@@ -124,13 +117,10 @@ namespace MemoryGame
                 }
                 else if (!validInput)
                 {
-                    //Console.WriteLine();
                     Console.WriteLine("\nQuitting this game.  Too many failed attempts. \n\n");
                     break;  // BREAKS WHILE LOOP
                 }
 
-
-                //DisplaySolution(numOfWords);  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 DisplayGameBoard(numOfWords);
 
 
@@ -144,13 +134,6 @@ namespace MemoryGame
                     if (choice2 == 0)
                     {
                         ShowSolutionQuitGame(numOfWords);
-
-                        //Console.Clear();
-                        //Console.WriteLine("Quitting.\n");
-                        //DisplaySolution(numOfWords);
-                        //WaitForAnyKeyPress();
-                        //Console.Clear();
-
                         break;
                     }
                     if (Words.shuffledStr[choice2 - 1] == " XX ")
@@ -162,8 +145,6 @@ namespace MemoryGame
                         Console.Clear();
                         continue;  // turn will be evaluated as "Not a match!"
                     }
-
-                    //                   else if ((choice2 == choice1) || (shuffledStrL[choice2 - 1] == " XX "))
                     else if (choice2 == choice1)
                     {
                         Console.Clear();
@@ -218,8 +199,6 @@ namespace MemoryGame
                         Console.Clear();
                     }
                 }
-
-                //else if ((choice2 == choice1) || (shuffledStrL[choice2 - 1] == " XX "))
                 else
                 {
                     Console.Clear();
@@ -309,6 +288,7 @@ namespace MemoryGame
 
 
         //METHODS FOR USE IN TESTING:
+
         private static void DisplaySolutionForTesting(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
         {
             Console.WriteLine();
