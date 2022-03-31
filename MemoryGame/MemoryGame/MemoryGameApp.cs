@@ -82,8 +82,8 @@ namespace MemoryGame
                 //CreateGameSolutionString(); // FOR TESTING
                 //WaitForAnyKeyPress();     //  FOR TESTING
 
-                DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-                //Console.Clear();   // uncomment this for actual gameplay when done testing
+                //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                Console.Clear();   // uncomment this for actual gameplay when done testing
 
                 DisplayGameBoard(numOfWords);
 
