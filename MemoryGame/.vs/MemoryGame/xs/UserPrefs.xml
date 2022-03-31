@@ -1,20 +1,12 @@
 ﻿<Properties StartupConfiguration="{EF4C9FD7-B6D7-4D56-9410-6E30F1C886A3}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MemoryGame" expanded="True">
             <Node name="CodeLouisvilleLibrary" expanded="True" />
-            <Node name="GameLibrary" expanded="True">
-              <Node name="Words.cs" selected="True" />
-            </Node>
+            <Node name="GameLibrary" expanded="True" />
             <Node name="MemoryGame" expanded="True" />
           </Node>
         </State>
@@ -24,4 +16,10 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

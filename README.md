@@ -29,14 +29,15 @@ This will allow you to see the solution to the game as you test it.  Then revers
 √  - create one class, instantiate an object of that class, and populate the object with data which is used OR displayed in the application.
 
 	[ instantiates MemoryGameApp() into object named 'app',
-	uses that object in Run() method inherited via CodeLouisvilleAppBase.cs.  
-	Data from 'app' is displayed in the game.  ]
+	  uses that object in Run() method inherited via CodeLouisvilleAppBase.cs.  
+	  Data from 'app' is displayed in the game.  ]
 
 √  - create and call 3 functions or methods
 
 	[ DisplayGameBoard()
 	  WaitForAnyKeyPress()
-	  CreateGameWords()  ]
+	  CreateGameWords()  
+	  ShowSolutionQuitGame() ]
 
 √ - one of these must return a value that is used in the application
 
@@ -68,6 +69,7 @@ This will allow you to see the solution to the game as you test it.  Then revers
          in a query of word source to sort in random order to new list.  
          The results of the query are used to create a second list, 
          which is doubled and placed in random order using OrderBy() 
-         and ToList() to serve as the words used in each game. ]
+         and ToList() to serve as the words (shuffledStr) used in each game.
+         DisplayGameBoard() uses shuffleStr in app display]
 	
 	

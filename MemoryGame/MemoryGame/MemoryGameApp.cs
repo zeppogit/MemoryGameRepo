@@ -100,8 +100,12 @@ namespace MemoryGame
                 {
                     if (choice1 == 0)
                     {
-                        Console.Clear();
-                        Console.WriteLine("Quitting.\n");
+                        ShowSolutionQuitGame(numOfWords);
+                        //Console.Clear();
+                        //Console.WriteLine("Quitting.\n");
+                        //DisplaySolution(numOfWords);
+                        //WaitForAnyKeyPress();
+                        //Console.Clear();
                         break;
                     }
                     else if (Words.shuffledStr[choice1 - 1] == " XX ")
@@ -139,8 +143,14 @@ namespace MemoryGame
                 {
                     if (choice2 == 0)
                     {
-                        Console.Clear();
-                        Console.WriteLine("\nYou have quit this game.\n  ");
+                        ShowSolutionQuitGame(numOfWords);
+
+                        //Console.Clear();
+                        //Console.WriteLine("Quitting.\n");
+                        //DisplaySolution(numOfWords);
+                        //WaitForAnyKeyPress();
+                        //Console.Clear();
+
                         break;
                     }
                     if (Words.shuffledStr[choice2 - 1] == " XX ")
@@ -241,7 +251,14 @@ namespace MemoryGame
             Console.ReadKey(true);
         }
 
-
+        private static void ShowSolutionQuitGame(int numOfWords)
+        {
+            Console.Clear();
+            Console.WriteLine("Quitting.\n");
+            DisplaySolution(numOfWords);
+            WaitForAnyKeyPress();
+            Console.Clear();
+        }
 
         private static void DisplayGameBoard(int num)
         {
@@ -266,7 +283,6 @@ namespace MemoryGame
             }
         }
 
-//////////////////// FUNCTIONS TO ASSIST WITH  TESTING APP  ///////////////////////////////////////////////
 
         private static void DisplaySolution(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
         {
@@ -288,11 +304,11 @@ namespace MemoryGame
                     Console.WriteLine();
                 }
             }
-            Console.WriteLine("SOLUTION DISPLAYED ABOVE FOR TESTING USE\n");
+            Console.WriteLine("HERE IS THE SOLUTION\n");
         }
 
 
-        private static void CreateGameSolutionString()  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
+        private static void CreateGameSolutionString()  //FOR POSSIBLE USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
         {
             Console.WriteLine();
             Console.WriteLine("TEST NOTE: Here are the words used");
