@@ -8,7 +8,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="MemoryGame/MemoryGameApp.cs">
     <Files>
-      <File FileName="MemoryGame/MemoryGameApp.cs" Line="303" Column="241" />
+      <File FileName="MemoryGame/MemoryGameApp.cs" Line="258" Column="30" />
       <File FileName="GameLibrary/GameBoard.cs" Line="4" Column="1" />
       <File FileName="GameLibrary/Words.cs" Line="41" Column="48" />
     </Files>

@@ -251,11 +251,11 @@ namespace MemoryGame
             Console.ReadKey(true);
         }
 
-        private static void ShowSolutionQuitGame(int numOfWords)
+        private static void ShowSolutionQuitGame(int _numOfWords)
         {
             Console.Clear();
             Console.WriteLine("Quitting.\n");
-            DisplaySolution(numOfWords);
+            DisplaySolution(_numOfWords);
             WaitForAnyKeyPress();
             Console.Clear();
         }
