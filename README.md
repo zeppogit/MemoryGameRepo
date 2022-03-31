@@ -12,15 +12,15 @@ Classic memory testing game similar to Classic Concentration single player with 
 
 ## Technical Instructions
 
-FOR TESTING PURPOSES:
+FOR TESTING PURPOSES
 
       In MemoryGameApp.cs it is advised to uncomment line 83, which for normal game play shows as:
 
-      [ //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY ]
+      //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
 and comment out line 84 which in normal game play shows as:
 
-      [ Console.Clear();   // 'Un-comment' this for actual gameplay.  But comment out if un-commenting previous line for testing. ]
+      Console.Clear();   // 'Un-comment' this for actual gameplay.  But comment out if un-commenting previous line for testing.
 
 This will allow you to see the solution to the game as you test it.  Then reverse the changes again (to as shown above) to experience the game as intended.
 
