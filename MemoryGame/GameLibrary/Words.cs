@@ -12,7 +12,8 @@ namespace GameLibrary
 
         public static List<string> shuffledStr = new List<string>();
 
-
+        public static List<string> solutionStr = new List<string>();  
+        
         public Words()
         {
     
@@ -36,6 +37,9 @@ namespace GameLibrary
 
             // The Three Parts of a LINQ Query:
             // PART 3. Query execution :  DisplayGameBoard() makes displays shuffleStr in app
+
+            solutionStr = shuffledStr.ToList();
+
 
         }
     }                  

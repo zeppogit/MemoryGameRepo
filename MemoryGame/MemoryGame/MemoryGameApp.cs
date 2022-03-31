@@ -82,7 +82,7 @@ namespace MemoryGame
                 //CreateGameSolutionString(); // FOR TESTING
                 //WaitForAnyKeyPress();     //  FOR TESTING
 
-                //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                //DisplaySolutionForTesting(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 Console.Clear();   // uncomment this for actual gameplay when done testing
 
                 DisplayGameBoard(numOfWords);
@@ -213,8 +213,8 @@ namespace MemoryGame
                         DisplayGameBoard(numOfWords);
 
                         Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.\n\n");
+                        DisplaySolution(numOfWords);
                         WaitForAnyKeyPress();
-                        
                         Console.Clear();
                     }
                 }
@@ -292,6 +292,31 @@ namespace MemoryGame
             {
                 for (int i = 0; i < 13; i += 4)
                 {
+                    Console.WriteLine("    " + Words.solutionStr[i] + "    " + Words.solutionStr[i + 1] + "    " + Words.solutionStr[i + 2] + "    " + Words.solutionStr[i + 3]);
+                    Console.WriteLine();
+                }
+            }
+            if (num == 18)
+            {
+                for (int i = 0; i < 31; i += 6)
+                {
+                    Console.WriteLine("    " + Words.solutionStr[i] + "    " + Words.solutionStr[i + 1] + "    " + Words.solutionStr[i + 2] + "    " + Words.solutionStr[i + 3] + "    " + Words.solutionStr[i + 4] + "    " + Words.solutionStr[i + 5]);
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine("HERE IS THE FULL SOLUTION\n");
+        }
+
+
+        //METHODS FOR USE IN TESTING:
+        private static void DisplaySolutionForTesting(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
+        {
+            Console.WriteLine();
+
+            if (num == 8)
+            {
+                for (int i = 0; i < 13; i += 4)
+                {
                     Console.WriteLine("    " + Words.shuffledStr[i] + "    " + Words.shuffledStr[i + 1] + "    " + Words.shuffledStr[i + 2] + "    " + Words.shuffledStr[i + 3]);
                     Console.WriteLine();
                 }
@@ -304,9 +329,8 @@ namespace MemoryGame
                     Console.WriteLine();
                 }
             }
-            Console.WriteLine("HERE IS THE SOLUTION\n");
+            Console.WriteLine("HERE IS THE FULL SOLUTION\n");
         }
-
 
         private static void CreateGameSolutionString()  //FOR POSSIBLE USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
         {
