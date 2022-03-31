@@ -3,8 +3,6 @@ namespace GameLibrary
 {
     public class Words
     {
-        public static int numWords;
-
 
         public static List<string> wordSource = new List<string>() { "BIRD", "FISH", "LAMP", "FIRE", "SHOE", "OVEN", "BOOK", "TREE", "DOOR", "BOAT", "CARS", "ROAD", "HOME", "FOAM", "TRIP", "HARP", "MEAT", "FOOT", "FEET", "PALM", "OATS", "TEAM", "LOOP", "POOL", "HEAD", "JEEP", "COAT", "STOP", "PORT", "NICE", "COMB", "EASY", "GRID", "ICEY", "JOKE", "KNOT", "LICE", "MOAT", "NOTE", "OXEN", "QUAY", "RACE", "ROPE", "SAND", "VINE", "VOTE", "WHIP", "WEED", "EXIT", "YEAR", "DUNE", "YELP", "ZOOM" };
 

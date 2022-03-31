@@ -42,13 +42,10 @@ namespace MemoryGame
                 {
                     case 'S':
                         Words.CreateGameWords(8);
-                        //Words.Words(8);
-                        //Words.numWords = 8;
-                        GamePlay(8);  //later:  gameplay(16)  16 squares 
+                        GamePlay(8);  //  16 squares 
                         break;
                     case 'L':
                         Words.CreateGameWords(18);
-                        //Words.numWords = 18;
                         GamePlay(18); //36 squares
                         break;
                     case 'Q':
@@ -234,7 +231,7 @@ namespace MemoryGame
 
 
 
-        } // END gamePlay()
+        } // END GamePlay()
 
 
 
