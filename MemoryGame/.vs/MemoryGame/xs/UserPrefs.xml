@@ -1,26 +1,24 @@
 ﻿<Properties StartupConfiguration="{EF4C9FD7-B6D7-4D56-9410-6E30F1C886A3}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MemoryGame/MemoryGameApp.cs">
+  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CodeLouisvilleLibrary/Menu.cs">
     <Files>
-      <File FileName="MemoryGame/Program.cs" Line="13" Column="5" />
-      <File FileName="GameLibrary/Words.cs" Line="24" Column="34" />
-      <File FileName="GameLibrary/Player.cs" Line="12" Column="25" />
-      <File FileName="MemoryGame/MemoryGameApp.cs" Line="284" Column="1" />
+      <File FileName="CodeLouisvilleLibrary/Menu.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="MemoryGame" expanded="True">
-            <Node name="CodeLouisvilleLibrary" expanded="True" />
-            <Node name="GameLibrary" expanded="True" />
-            <Node name="MemoryGame" expanded="True">
-              <Node name="MemoryGameApp.cs" selected="True" />
+            <Node name="CodeLouisvilleLibrary" expanded="True">
+              <Node name="Menu.cs" selected="True" />
             </Node>
+            <Node name="GameLibrary" expanded="True" />
+            <Node name="MemoryGame" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -29,5 +27,4 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.MemoryGame PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

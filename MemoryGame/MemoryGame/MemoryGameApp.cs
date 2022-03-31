@@ -15,8 +15,7 @@ namespace MemoryGame
         private static List<string> displayStr = new List<string>() { " 01 ", " 02 ", " 03 ", " 04 ", " 05 ", " 06 ", " 07 ", " 08 ", " 09 ", " 10 ", " 11 ", " 12 ", " 13 ", " 14 ", " 15 ", " 16 ", " 17 ", " 18 ", " 19 ", " 20 ", " 21 ", " 22 ", " 23 ", " 24 ", " 25 ", " 26 ", " 27 ", " 28 ", " 29 ", " 30 ", " 31 ", " 32 ", " 33 ", " 34 ", " 35 ", " 36 "};
 
 
-
-        public MemoryGameApp() : base("Memory Game")  // name in quotes provided to be implemented in Welcome()
+    public MemoryGameApp() : base("Memory Game")  // name in quotes provided to be implemented in Welcome()
 		{
 		
 		}
@@ -45,12 +44,12 @@ namespace MemoryGame
                         Words.CreateGameWords(8);
                         //Words.Words(8);
                         //Words.numWords = 8;
-                        gamePlay(8);  //later:  gameplay(16)  16 squares 
+                        GamePlay(8);  //later:  gameplay(16)  16 squares 
                         break;
                     case 'L':
                         Words.CreateGameWords(18);
                         //Words.numWords = 18;
-                        gamePlay(18); //36 squares
+                        GamePlay(18); //36 squares
                         break;
                     case 'Q':
                         quit = true;
@@ -72,7 +71,7 @@ namespace MemoryGame
 
 
 
-        private static void gamePlay(int num)
+        private static void GamePlay(int num)
         {
             int numOfWords = num;
             int numberOfTurns = 0;
@@ -83,13 +82,13 @@ namespace MemoryGame
             while (numberOfMatches < (numOfWords - 1 ))
             {
 
-                //createGameSolutionString(); // FOR TESTING
+                //CreateGameSolutionString(); // FOR TESTING
                 //WaitForAnyKeyPress();     //  FOR TESTING
 
-                displaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
                 //Console.Clear();   // uncomment this for actual gameplay when done testing
 
-                displayGameBoard(numOfWords);
+                DisplayGameBoard(numOfWords);
 
 
                 ///////////// Game Board now displayed, and Game Play begins //////////////////////////////////////
@@ -104,6 +103,7 @@ namespace MemoryGame
                 {
                     if (choice1 == 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("Quitting.\n");
                         break;
                     }
@@ -125,12 +125,12 @@ namespace MemoryGame
                 {
                     //Console.WriteLine();
                     Console.WriteLine("\nQuitting this game.  Too many failed attempts. \n\n");
-                    break;
+                    break;  // BREAKS WHILE LOOP
                 }
 
 
-                //displaySolution(numOfWords);  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
-                displayGameBoard(numOfWords);
+                //DisplaySolution(numOfWords);  // UNCOMMENT FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+                DisplayGameBoard(numOfWords);
 
 
      ////////////////////////////  CHOICE 2  ///////////////////////////
@@ -142,6 +142,7 @@ namespace MemoryGame
                 {
                     if (choice2 == 0)
                     {
+                        Console.Clear();
                         Console.WriteLine("\nYou have quit this game.\n  ");
                         break;
                     }
@@ -182,7 +183,7 @@ namespace MemoryGame
                 {
                     numberOfMatches++;
 
-                    displayGameBoard(numOfWords);
+                    DisplayGameBoard(numOfWords);
 
 
                     Console.Clear();
@@ -202,10 +203,12 @@ namespace MemoryGame
                     if (numberOfMatches == (numOfWords - 1))
                     {
                         Console.Clear();
-                        displayGameBoard(numOfWords);
+                        DisplayGameBoard(numOfWords);
 
                         Console.Write($"There is only one match left to reveal, so you have completed the game on turn number {numberOfTurns}.\n\n");
-
+                        WaitForAnyKeyPress();
+                        
+                        Console.Clear();
                     }
                 }
 
@@ -213,7 +216,7 @@ namespace MemoryGame
                 else
                 {
                     Console.Clear();
-                    displayGameBoard(numOfWords);
+                    DisplayGameBoard(numOfWords);
                     Console.WriteLine("Not a match!");
                     WaitForAnyKeyPress();
                     Console.Clear();
@@ -223,7 +226,16 @@ namespace MemoryGame
 
             } // END WHILE LOOP
 
-        }
+            //ensure all displayStr values set back to show numbers
+            for (int i = 0; i < 36; i++)
+            {
+                displayStr[i] = numStr[i];
+            }
+
+
+
+        } // END gamePlay()
+
 
 
         private static void WaitForAnyKeyPress()
@@ -234,7 +246,7 @@ namespace MemoryGame
 
 
 
-        private static void displayGameBoard(int num)
+        private static void DisplayGameBoard(int num)
         {
             Console.WriteLine();
             if (num == 8)
@@ -259,7 +271,7 @@ namespace MemoryGame
 
 //////////////////// FUNCTIONS TO ASSIST WITH  TESTING APP  ///////////////////////////////////////////////
 
-        private static void displaySolution(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
+        private static void DisplaySolution(int num)  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS ON THE GAMEBOARD
         {
             Console.WriteLine();
 
@@ -283,7 +295,7 @@ namespace MemoryGame
         }
 
 
-        private static void createGameSolutionString()  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
+        private static void CreateGameSolutionString()  //FOR USE IN TESTING - DISPLAY ALL THE GAME WORDS IN A STRING
         {
             Console.WriteLine();
             Console.WriteLine("TEST NOTE: Here are the words used");
