@@ -14,11 +14,11 @@ Classic memory testing game similar to Classic Concentration single player with 
 
 For testing purposes, in MemoryGameApp.cs it is advised to uncomment line 85, which for normal game play shows as:
 
-                //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
+      //DisplaySolution(numOfWords);  // UNCOMMENT this line and COMMENT OUT the next line FOR TESTING  // COMMENT OUT FOR ACTUAL GAME PLAY
 
 and comment out line 86 which in normal game play shows as:
 
-                Console.Clear();   // uncomment this for actual gameplay when done testing
+      Console.Clear();   // uncomment this for actual gameplay when done testing
 
 This will allow you to see the solution to the game as you test it.  Then reverse the changes again (to as shown above) to experience the game as intended.
 
@@ -38,7 +38,7 @@ This will allow you to see the solution to the game as you test it.  Then revers
 	  WaitForAnyKeyPress()
 	  CreateGameWords()  ]
 
-	√ - one of these must return a value that is used in the application
+√ - one of these must return a value that is used in the application
 
 
 ### Include three items from Feature List:
@@ -64,6 +64,10 @@ This will allow you to see the solution to the game as you test it.  Then revers
 
 √  - Use a LINQ query to retrieve info from a data structure such as a list or an array (or from a file).
 
-	[ Words.cs uses LINQ methods  OrderBy(), Take(), and ToList() in a query of word source to sort in random order to new list.  The results of the query are used to create a second list, which is doubled and placed in random order using OrderBy() and ToList() to serve as the words used in each game. ]
+	[ Words.cs uses LINQ methods  OrderBy(), Take(), and ToList() 
+         in a query of word source to sort in random order to new list.  
+         The results of the query are used to create a second list, 
+         which is doubled and placed in random order using OrderBy() 
+         and ToList() to serve as the words used in each game. ]
 	
 	
